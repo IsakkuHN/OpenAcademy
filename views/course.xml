@@ -10,6 +10,17 @@
         </tree>
       </field>
     </record>
+    <!-- open_academy.course search view -->
+    <record id="model_name_view_search" model="ir.ui.view">
+        <field name="name">open_academy.course.view.search</field>
+        <field name="model">open_academy.course</field>
+        <field name="arch" type="xml">
+            <search string="Search Description">
+                <field name="title"/>
+                <field name="description"/>
+            </search>
+        </field>
+    </record>
 
     <!-- open_academy.course form view -->
     <record id="model_name_view_form" model="ir.ui.view">
