@@ -43,11 +43,23 @@
         </field>
     </record>
 
+    <!-- This Menu Item must have a parent and an action 
+            Menu y acciones del modelo de Sesiones    
+    -->
+    <record model="ir.actions.act_window" id="action_list_session">
+        <field name="name">Sessions</field>
+        <field name="res_model">open_academy.session</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_sessions" name="Sessions" parent="menu_open_academy" action="action_list_session" sequence="10"/>
+   
+    <!--Menu y Acciones del modelo de Cursos-->
     <record model="ir.actions.act_window" id="action_list_course">
         <field name="name">Courses</field>
         <field name="res_model">open_academy.course</field>
         <field name="view_mode">tree,form</field>
     </record>
+    
     <menuitem id="menu_open_academy" name="OpenAcademy" sequence="10"/>
     <menuitem id="menu_course" parent="menu_open_academy" name="Courses" sequence="10"
           action="action_list_course"/>
