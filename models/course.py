@@ -10,3 +10,4 @@ class open_academy(models.Model):
     name = fields.Char(string='Course')
     title = fields.Char(string='Title')
     description = fields.Text(string='Description')
+    responsible_id = fields.Many2one('res.users', ondelete='set null', string='Responsable')

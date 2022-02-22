@@ -43,6 +43,21 @@
         </field>
     </record>
 
+    <!-- open_academy.session tree view -->
+    <record id="open_academy_session_tree" model="ir.ui.view">
+        <field name="name">open_academy.session</field>
+        <field name="model">open_academy.session</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="instructor_id"/>
+                <field name="description"/>
+                <field name="duration"/>
+            </tree>
+        </field>
+    </record>
+
     <!-- This Menu Item must have a parent and an action 
             Menu y acciones del modelo de Sesiones    
     -->
