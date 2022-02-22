@@ -53,7 +53,7 @@
                 <field name="name"/>
                 <field name="instructor_id"/>
                 <field name="description"/>
-                <field name="duration"/>
+                <field name="course_id"/>
             </tree>
         </field>
     </record>
