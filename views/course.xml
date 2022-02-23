@@ -1,5 +1,6 @@
 <odoo>
     <data>
+    <!--Tre view course-->
     <record model="ir.ui.view" id="open_academy.course_tree">
       <field name="name">Course List</field>
       <field name="model">open_academy.course</field>
@@ -31,7 +32,6 @@
                 <sheet>
                     <group>
                         <field name="name" />
-                        
                     </group>
                     <notebook>
                         <page string="Description" name="description">
@@ -78,5 +78,50 @@
     <menuitem id="menu_open_academy" name="OpenAcademy" sequence="10"/>
     <menuitem id="menu_course" parent="menu_open_academy" name="Courses" sequence="10"
           action="action_list_course"/>
+
+    <!-- res.partner form view -->
+    <record id="res_partner_view_form" model="ir.ui.view">
+        <field name="name">res.partner.inherited</field>
+        <field name="model">res.partner</field>
+        <field name="name"> </field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- open_academy.session form view -->
+    <record id="model_name_view_form" model="ir.ui.view">
+        <field name="name">open_academy.session.view.form</field>
+        <field name="model">open_academy.session</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="start_date"/>
+                        <field name="duration"/>
+                        <field name="cupos"/>
+                        <field name="instructor_id"/>
+                        <field name="course_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Asistentes">
+                            <field name="attendee_id"/>
+                        </page>
+                    </notebook>
+                    
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    
     </data>
 </odoo>
