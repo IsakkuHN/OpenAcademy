@@ -19,6 +19,10 @@
             <search string="Search Description">
                 <field name="title"/>
                 <field name="description"/>
+                <filter name="mis_cursos" string="Mis Cursos" domain="[('responsible_id', '=', uid)]"/>
+                <group string="Agrupar por">
+                    <filter name="por Encargado" string="Encargado" context="{'group_by': 'responsible_id'}"/>
+                </group>
             </search>
         </field>
     </record>
@@ -65,7 +69,7 @@
     <record model="ir.actions.act_window" id="action_list_session">
         <field name="name">Sessions</field>
         <field name="res_model">open_academy.session</field>
-        <field name="view_mode">tree,form,calendar</field>
+        <field name="view_mode">tree,form,calendar,graph</field>
     </record>
     <menuitem id="menu_sessions" name="Sessions" parent="menu_open_academy" action="action_list_session" sequence="10"/>
    
@@ -120,7 +124,6 @@
                             <field name="attendee_id"/>
                         </page>
                     </notebook>
-                    
                 </sheet>
             </form>
         </field>
@@ -138,6 +141,19 @@
       </field>
     </record>
 
-    
+    <!--Grafico-->
+
+    <!-- open_academy.session graph view -->
+    <record id="model_name_view_graph" model="ir.ui.view">
+        <field name="name">open_academy.session.view.graph</field>
+        <field name="model">open_academy.session</field>
+        <field name="arch" type="xml">
+            <graph string="Asistentes por Curso">
+                <!-- Add your fields here -->   
+                <field name="course_id"/>
+                <field name="asistentes_curso" type="measure" />
+            </graph>
+        </field>
+    </record>
     </data>
 </odoo>

@@ -25,6 +25,7 @@ class open_academy(models.Model):
 
     asistencia = fields.Float(string="Cupos ocupados", compute='_asistencia')
     fecha_final = fields.Date(string="Fecha final", store=True, compute='_obtener_fecha_final', inverse='_establecer_fecha_final')
+    asistentes_curso = fields.Integer(string="Cantidad de alumnos", compute='_num_asistentes_curso', store = True)
 
     #Porcentaje de los asientos ocupados
     @api.depends('cupos','attendee_id')
@@ -78,3 +79,8 @@ class open_academy(models.Model):
             fecha_inicial = fields.Datetime.from_string(record.start_date)
             fecha_final = fields.Datetime.from_string(record.fecha_final)
             record.duration = (fecha_final-fecha_inicial).days + 1
+
+    @api.depends('attendee_id')
+    def _num_asistentes_curso(self):
+        for i in self:
+            i.asistentes_curso = len(i.attendee_id)
