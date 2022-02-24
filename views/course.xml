@@ -111,6 +111,7 @@
                         <field name="instructor_id"/>
                         <field name="course_id"/>
                         <field name="asistencia" widget="progressbar"/>
+                        <field name="activo"/>
                     </group>
                     <notebook>
                         <page string="Asistentes">

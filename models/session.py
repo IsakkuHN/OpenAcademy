@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from email.policy import default
 from string import digits
 from odoo import models, fields, api
 
@@ -17,6 +18,7 @@ class open_academy(models.Model):
                                                                                                             ('category_id.name','ilike',"Teacher")])
     course_id= fields.Many2one('open_academy.course', required=True, string='Curso_Id')
     attendee_id= fields.Many2many('res.partner', strings='Attendees')
+    activo= fields.Boolean(default=True)
 
     asistencia = fields.Float(string="Cupos ocupados", compute='_asistencia')
 
