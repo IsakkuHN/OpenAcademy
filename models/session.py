@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 
+from asyncio import exceptions
 from email.policy import default
 from string import digits
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 
 class open_academy(models.Model):
@@ -49,4 +51,10 @@ class open_academy(models.Model):
                 }
             }
 
-    
+    #Revisar la lista de asistentes
+    @api.constrains('attendee_id','instructor_id')
+    def _validar_asistentes(self):
+        for record in self.attendee_id:
+            if record == self.instructor_id:
+                raise ValidationError("Un instructor no puede formar parte de la lista de asistentes")
+
