@@ -53,7 +53,7 @@
                 <field name="name"/>
                 <field name="instructor_id"/>
                 <field name="description"/>
-                <field name="course_id"/>
+                <field name="asistencia" widget="progressbar"/>
             </tree>
         </field>
     </record>
@@ -110,6 +110,7 @@
                         <field name="cupos"/>
                         <field name="instructor_id"/>
                         <field name="course_id"/>
+                        <field name="asistencia" widget="progressbar"/>
                     </group>
                     <notebook>
                         <page string="Asistentes">
