@@ -30,4 +30,23 @@ class open_academy(models.Model):
                 i.asistencia = 0.0
             else:
                 i.asistencia = 100.0*len(i.attendee_id)/i.cupos
+
+    #Onchange 
+    @api.onchange('cupos','attendee_id')
+    def _validar_cupos(self):
+        if self.cupos < 0:
+            return {
+                'warning':{
+                    'title':"Valor de cupos incorrecto",
+                    'message':"El numero de cupos de la sesion no puede ser negativo"
+                }
+            }
+        if self.cupos < len(self.attendee_id):
+            return {
+                'warning':{
+                    'title':"Lista de asistentes completa",
+                    'message':"El numero de asistentes de la sesion excede los cupos de la misma"
+                }
+            }
+
     
